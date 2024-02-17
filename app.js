@@ -56,7 +56,7 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
   clientID: '888153648277-6al662vpm8h771vtoiqnul5brhc68jg3.apps.googleusercontent.com',
   clientSecret: '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',
-  callbackURL: 'http://localhost:3000/auth/google/callback',
+  callbackURL: 'https://advancedchat-jpmu.onrender.com/auth/google/callback',
 }, (accessToken, refreshToken, profile, done) => {
   // Save user information in the session
   return done(null, profile);

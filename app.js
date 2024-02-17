@@ -8,6 +8,20 @@ const socketIO = require('socket.io');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const winston = require('winston');
+const MongoDBStore = require('connect-mongodb-session')(session);
+
+const store = new MongoDBStore({
+  uri: process.env.MONGODB_URI,
+  collection: 'sessions',
+});
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: true,
+  saveUninitialized: true,
+  store: store,
+}));
+
 
 // Configure winston (adjust as needed)
 winston.configure({
@@ -27,7 +41,13 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 // MongoDB and Mongoose setup
-mongoose.connect('mongodb://localhost:27017/chatApp', { useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb://localhost:27017/chatApp', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  poolSize: 10,
+});
 
 
 
@@ -138,10 +158,11 @@ app.use((err, req, res, next) => {
 });
 
 // Server setup
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
 
 // Google OAuth configuration
 /*passport.use(new GoogleStrategy({

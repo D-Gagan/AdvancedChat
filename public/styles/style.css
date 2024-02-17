@@ -1,0 +1,92 @@
+/* styles/style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}
+
+nav {
+  background-color: #444;
+  color: white;
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 1em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+#room-form {
+  margin-bottom: 1em;
+}
+
+#room-list {
+  text-align: center;
+}
+
+#rooms {
+  list-style: none;
+  padding: 0;
+}
+
+#rooms li {
+  cursor: pointer;
+  margin: 0.5em;
+}
+
+#chat-room {
+  width: 100%;
+  max-width: 600px;
+}
+
+#messages {
+  list-style: none;
+  padding: 0;
+}
+
+#messages li {
+  margin: 0.5em;
+}
+
+form {
+  display: flex;
+  margin-top: 1em;
+}
+
+input {
+  flex: 1;
+  padding: 0.5em;
+}
+
+button {
+  padding: 0.5em;
+  cursor: pointer;
+}

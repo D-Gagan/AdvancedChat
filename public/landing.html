@@ -1,0 +1,59 @@
+<!-- public/landing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Application</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Chat Application</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/auth/google">Login with Google</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div id="chat-container">
+      <div id="room-form">
+        <label for="room">Create or Join a Room:</label>
+        <input type="text" id="room" placeholder="Enter room name" />
+        <button id="join-room">Join Room</button>
+      </div>
+      <div id="room-list">
+        <h2>Available Rooms:</h2>
+        <ul id="rooms"></ul>
+      </div>
+      <div id="chat-room" style="display: none;">
+        <h2 id="room-title">Global Chat</h2>
+        <table id="chat-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody id="messages"></tbody>
+        </table>
+        <form id="form" action="">
+          <input id="msg" autocomplete="off" /><button id="send">Send</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Chat Application</p>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/scripts/chat.js"></script>
+</body>
+</html>

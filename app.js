@@ -42,12 +42,22 @@ const io = socketIO(server);
 
 // MongoDB and Mongoose setup
 //mongoose.connect('mongodb://localhost:27017/chatApp', { useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  poolSize: 10,
-});
+
+const mongoose = require('mongoose');
+
+// Replace <password> with the actual password for the 07gagand user
+const mongoURI = MONGODB_URI;
+
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB Atlas:', error.message);
+  });
+
+// ... rest of your code
+
 
 
 

@@ -84,9 +84,9 @@ app.use(passport.session());
 
 // Google OAuth configuration
 passport.use(new GoogleStrategy({
-  clientID: '888153648277-6al662vpm8h771vtoiqnul5brhc68jg3.apps.googleusercontent.com',
-  clientSecret: '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',
-  callbackURL: 'https://d-gagan.github.io/Chatting/auth/google/callback',
+  clientID: your-client-id,
+  clientSecret: your-secret-key,
+  callbackURL: your-callback-url,
 }, (accessToken, refreshToken, profile, done) => {
   // Save user information in the session
   return done(null, profile);
